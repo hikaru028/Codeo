@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react'
 import { Button } from './ui/button';
 import { SparkleIcon } from 'lucide-react';
-import { useUserRole } from '@/hooks/UseUserRole';
+import { useUserRole } from '@/hooks/useUserRole';
 
 type Props = {}
 
