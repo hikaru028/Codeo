@@ -24,7 +24,7 @@ export const syncUser = mutation({
     }
 });
 
-export const getUsers = query({
+export const getAllUsers = query({
     handler: async (ctx) => {
         const identity = await ctx.auth.getUserIdentity();
         if (!identity) throw new Error("User id not authenticated");
