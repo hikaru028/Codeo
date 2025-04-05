@@ -14,8 +14,8 @@ const Navbar = (props: Props) => {
             <div className='flex h-16 items-center container px-4 mx-auto'>
                 {/* left side */}
                 <Link href="/" className='flex items-center text-2xl font-semibold font-mono gap-2 mr-6 hover:opacity-80 transition-opacity'>
-                    <CodeIcon className='size-8 text-emerald-500' />
-                    <span className='bg-gradient-to-r from-emerald-600 to-teal-500 bg-clip-text text-transparent'>
+                    <CodeIcon className='size-8 text-gray-900' />
+                    <span className='bg-gradient-to-r from-gray-900 to-slate-400 bg-clip-text text-transparent'>
                         Codeo
                     </span>
                 </Link>
