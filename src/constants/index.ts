@@ -32,8 +32,8 @@ export const QUICK_ACTIONS = [
         icon: Code2,
         title: "New Call",
         description: "Start an instant call",
-        color: "primary",
-        gradient: "from-primary/10 via-primary/5 to-transparent",
+        color: "gray-500",
+        gradient: "from-gray-500/10 via-gray-500/5 to-transparent",
     },
     {
         icon: Users,

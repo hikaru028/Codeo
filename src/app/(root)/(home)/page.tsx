@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className="container max-w-7xl mx-auto p-6">
       {/* welcome */}
-      <div className='rounded-lg bg-card p-6 border shadow-sm mb-10'>
+      <div className='p-6 mb-10'>
         <h1 className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-slate-200 bg-clip-text text-transparent">
           Welcome back!
         </h1>

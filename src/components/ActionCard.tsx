@@ -2,6 +2,16 @@ import { QuickActionType } from '@/constants'
 import { Card } from './ui/card'
 import React from 'react'
 
+// Tw bug, but this is how it works
+// gray-500
+// from-gray-500/10 via-gray-500/5 to-transparent
+// purple-500
+// from-purple-500/10 via-purple-500/5 to-transparent
+// blue-500
+// from-blue-500/10 via-blue-500/5 to-transparent
+// orange-500
+// from-orange-500/10 via-orange-500/5 to-transparent
+
 type Props = {
     action: QuickActionType,
     onClick: () => void
@@ -10,7 +20,7 @@ type Props = {
 const ActionCard = (props: Props) => {
     return (
         <Card
-            className='group relative overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg cursor-pointer'
+            className='border-gray-200 group relative overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg cursor-pointer'
             onClick={props.onClick}
         >
             {/* Action gradient */}
