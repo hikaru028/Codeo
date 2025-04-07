@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
+import useMeetingActions from '@/hooks/useMeetingActions';
 
 type MeetingModalProps = {
     isOpen: boolean;
@@ -12,10 +13,22 @@ type MeetingModalProps = {
 
 const MeetingModal = (props: MeetingModalProps) => {
     const [meetingUrl, setMeetingUrl] = useState<string>("");
+    const { createInstantMeeting, joinMeeting } = useMeetingActions();
 
-    const createMeeting = async () => { };
-    const joinMeeting = async () => { };
-    const handleStart = () => { };
+    const handleStart = () => {
+        if (props.isJoinMeeting) {
+            // if it's a full URL extract meeting ID
+            const meetingId = meetingUrl.split("/").pop();
+            if (meetingId) {
+                joinMeeting(meetingId);
+            }
+        } else {
+            createInstantMeeting();
+        }
+
+        setMeetingUrl("");
+        props.onClose();
+    };
 
     return (
         <Dialog
