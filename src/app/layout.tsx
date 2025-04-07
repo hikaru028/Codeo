@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ConvexClerkProvider from "@/components/providers/ConvexClerkProvider";
 import Navbar from "@/components/Navbar";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { RedirectToSignIn, SignedOut, SignedIn } from "@clerk/nextjs";
 
 const geistSans = localFont({

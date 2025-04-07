@@ -22,7 +22,7 @@ const MeetingModal = (props: MeetingModalProps) => {
             open={props.isOpen}
             onOpenChange={props.onClose}
         >
-            <DialogContent className='sm:max-w-[425px]'>
+            <DialogContent className='sm:max-w-[425px] bg-slate-100'>
                 <DialogHeader>
                     <DialogTitle>{props.title}</DialogTitle>
                 </DialogHeader>
@@ -35,8 +35,8 @@ const MeetingModal = (props: MeetingModalProps) => {
                         />
                     )}
                     <div className='flex justify-end gap-3'>
-                        <Button variant='outline' onClick={props.onClose}>Cancel</Button>
-                        <Button onClick={handleStart} disabled={props.isJoinMeeting && !meetingUrl.trim()}>
+                        <Button variant='default' onClick={props.onClose}>Cancel</Button>
+                        <Button variant='outline' onClick={handleStart} disabled={props.isJoinMeeting && !meetingUrl.trim()}>
                             {props.isJoinMeeting ? "Join meeting" : "Start meeting"}
                         </Button>
                     </div>
