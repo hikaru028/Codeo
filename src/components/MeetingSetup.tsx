@@ -38,15 +38,23 @@ const MeetingSetup = (props: Props) => {
             <div className='w-full max-w-[1200px] mx-auto'>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                     {/* Left side (Video preview) */}
-                    <div className='absolute inset-0'>
-                        <VideoPreview className='h-full w-full' />
-                    </div>
+                    <Card className='md:col-span-1 p-6'>
+                        <div>
+                            <h1 className='text-xl font-semibold mb-1'>Camera preview</h1>
+                            <p className='text-sm text-muted-foreground'>Make sure you look good!</p>
+                        </div>
+                        <div className='mt-4 flex-1 min-h-[400px] rounded-xl overflow-hidden b-muted/50 border relative'>
+                            <div className='absolute inset-0'>
+                                <VideoPreview className='h-full w-full' />
+                            </div>
+                        </div>
+                    </Card>
                     {/* Right side (System controls)*/}
                     <Card className='md:col-span-1 p-6'>
                         <div className='h-full flex flex-col'>
                             <div>
                                 <h2 className='text-xl font-semibold mb-1'>System controls</h2>
-                                <p className='text-sm text-muted-foreground break-all'>{call.id}</p>
+                                <p className='text-sm text-muted-foreground break-all'>ID: {call.id}</p>
                             </div>
                             <div className='flex-1 flex flex-col justify-between'>
                                 <div className='spacey-6 mt-8'>
@@ -58,7 +66,7 @@ const MeetingSetup = (props: Props) => {
                                             </div>
                                             <div>
                                                 <p className='text-sm font-medium'>Camera</p>
-                                                <p className='text-sm text-muted-foreground'>\
+                                                <p className='text-sm text-muted-foreground'>
                                                     {isCameraDisabled ? 'Off' : 'On'}
                                                 </p>
                                             </div>
@@ -77,7 +85,7 @@ const MeetingSetup = (props: Props) => {
                                             </div>
                                             <div>
                                                 <p className='text-sm font-medium'>Microphone</p>
-                                                <p className='text-sm text-muted-foreground'>\
+                                                <p className='text-sm text-muted-foreground'>
                                                     {isMicDisabled ? 'Off' : 'On'}
                                                 </p>
                                             </div>
@@ -96,7 +104,7 @@ const MeetingSetup = (props: Props) => {
                                             </div>
                                             <div>
                                                 <p className='text-sm font-medium'>Settings</p>
-                                                <p className='text-sm text-muted-foreground'>\
+                                                <p className='text-sm text-muted-foreground'>
                                                     Configure devices
                                                 </p>
                                             </div>
