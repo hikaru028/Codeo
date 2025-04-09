@@ -4,7 +4,7 @@ import { Card } from './ui/card';
 import { CameraIcon, MicIcon, SettingsIcon } from 'lucide-react';
 import { Switch } from './ui/switch';
 import { Button } from './ui/button';
-import DeviceSettings from './DeviceSettings';
+import { DeviceSettings } from '@stream-io/video-react-sdk'
 
 type Props = {
     onSetupComplete: () => void,
@@ -57,7 +57,7 @@ const MeetingSetup = (props: Props) => {
                                 <p className='text-sm text-muted-foreground break-all'>ID: {call.id}</p>
                             </div>
                             <div className='flex-1 flex flex-col justify-between'>
-                                <div className='spacey-6 mt-8'>
+                                <div className='space-y-6 mt-8'>
                                     {/* Camera */}
                                     <div className='flex items-center justify-between'>
                                         <div className='flex items-center gap-3'>
@@ -111,16 +111,15 @@ const MeetingSetup = (props: Props) => {
                                         </div>
                                         <DeviceSettings />
                                     </div>
-
-                                    {/* Join button */}
-                                    <div className='space-y-3 mt-8'>
-                                        <Button className='w-full' size="lg" onClick={handleJoin}>
-                                            Join meeting
-                                        </Button>
-                                        <p className='text-sm text-center text-muted-foreground'>
-                                            Do not worry, our team is super friendly! We want you to succeed.
-                                        </p>
-                                    </div>
+                                </div>
+                                {/* Join button */}
+                                <div className='space-y-3 mt-8'>
+                                    <Button className='w-full' size="lg" onClick={handleJoin}>
+                                        Join meeting
+                                    </Button>
+                                    <p className='text-sm text-center text-muted-foreground'>
+                                        Do not worry, our team is super friendly! We want you to succeed.
+                                    </p>
                                 </div>
                             </div>
                         </div>
