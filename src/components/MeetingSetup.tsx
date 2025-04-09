@@ -12,7 +12,7 @@ type Props = {
 
 const MeetingSetup = (props: Props) => {
     const [isCameraDisabled, setIsCameraDisabled] = useState<boolean>(true);
-    const [isMicDisabled, setIsMicDisabled] = useState<boolean>(false);
+    const [isMicDisabled, setIsMicDisabled] = useState<boolean>(true);
 
     const call = useCall();
     if (!call) return null;
@@ -45,7 +45,7 @@ const MeetingSetup = (props: Props) => {
                         </div>
                         <div className='mt-4 flex-1 min-h-[400px] rounded-xl overflow-hidden b-muted/50 border relative'>
                             <div className='absolute inset-0'>
-                                <VideoPreview className='h-full w-full' />
+                                <VideoPreview className='h-full w-full border-none' />
                             </div>
                         </div>
                     </Card>
