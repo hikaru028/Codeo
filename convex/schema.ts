@@ -26,7 +26,7 @@ export default defineSchema({
     comments: defineTable({
         content: v.string(),
         rating: v.number(),
-        interviewerId: v.string(),
+        interviewerId: v.string() || undefined,
         interviewId: v.id("interviews"),
     })
         .index("by_interview_id", ["interviewId"]),

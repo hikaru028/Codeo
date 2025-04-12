@@ -53,7 +53,7 @@ export const getMyInterviews = query({
 });
 
 // Get a specific interview by ID
-export const getInterviewById = query({
+export const getInterviewByStreamCallId = query({
     args: { streamCallId: v.string() },
     handler: async (ctx, args) => {
         return await ctx.db
@@ -72,7 +72,7 @@ export const updateInterviewStatus = mutation({
     handler: async (ctx, args) => {
         return await ctx.db.patch(args.id, {
             status: args.status,
-            ...(args.status === "completed" && { endTime: Date.now() })
+            ...(args.status === "completed" ? { endTime: Date.now() } : {})
         });
     }
 });

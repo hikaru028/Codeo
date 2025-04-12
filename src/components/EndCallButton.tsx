@@ -19,11 +19,13 @@ const EndCallButton = (props: Props) => {
 
     const interview = useQuery(api.interviews.getInterviewByStreamCallId, { streamCallId: call?.id || "" });
 
+    if (!call || !interview) return null;
+
     const endCall = async () => {
         try {
             await call?.endCall();
             await updateInterviewStatus({
-                id: interview._id,
+                id: interview?._id,
                 status: "completed"
             })
 
@@ -34,8 +36,6 @@ const EndCallButton = (props: Props) => {
             toast.error("Failed to end meeting.")
         }
     }
-
-    if (!call || !interview) return null;
 
     const isMeetingOwner = localParticipant?.userId === call.state.createdBy?.id;
 
