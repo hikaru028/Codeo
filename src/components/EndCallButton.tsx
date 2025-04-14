@@ -47,7 +47,7 @@ const EndCallButton = (props: Props) => {
             variant={"destructive"}
             onClick={endCall}
         >
-            EndCallButton
+            End Call Button
         </Button>
     )
 }
