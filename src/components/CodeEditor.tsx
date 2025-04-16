@@ -34,7 +34,7 @@ const CodeEditor = (props: Props) => {
                 <ScrollArea className="h-full">
                     <div className="p-6">
                         <div className="max-w-4xl mx-auto space-y-6">
-                            {/* HEADER */}
+                            {/* Header */}
                             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                 <div className="space-y-1">
                                     <div className="flex items-center gap-2">
@@ -93,7 +93,7 @@ const CodeEditor = (props: Props) => {
                                 </div>
                             </div>
 
-                            {/* PROBLEM DESC. */}
+                            {/* Problem description */}
                             <Card>
                                 <CardHeader className="flex flex-row items-center gap-2">
                                     <BookIcon className="h-5 w-5 text-primary/80" />
@@ -106,7 +106,7 @@ const CodeEditor = (props: Props) => {
                                 </CardContent>
                             </Card>
 
-                            {/* PROBLEM EXAMPLES */}
+                            {/* Problem example */}
                             <Card>
                                 <CardHeader className="flex flex-row items-center gap-2">
                                     <LightbulbIcon className="h-5 w-5 text-yellow-500" />
@@ -138,7 +138,7 @@ const CodeEditor = (props: Props) => {
                                 </CardContent>
                             </Card>
 
-                            {/* CONSTRAINTS */}
+                            {/* Constants */}
                             {selectedQuestion.constraints && (
                                 <Card>
                                     <CardHeader className="flex flex-row items-center gap-2">
