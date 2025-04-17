@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import useGetCalls from '@/hooks/useGetCalls'
 import { CallRecording } from '@stream-io/video-react-sdk'
 import LoaderUI from '@/components/LoaderUI'
+import { ScrollArea } from '@/components/ui/scroll-area'
 
 type Props = {}
 
@@ -30,8 +31,23 @@ const RecordingsPage = (props: Props) => {
 
     return (
         <div className=''>
+            <h1>Recordings</h1>
+            <p>
+                {recordings.length} {recordings.length === 1 ? "recording" : "recordings"} available
+            </p>
 
+            {/* Recording screen */}
+            <ScrollArea>
+                {recordings.length > 0 ? (
+                    <div>
+                        {recordings.map((r) => (
+                            <RecordingCard key={r.end_time} recording={r} />
+                        ))}
+                    </div>
+                )}
+            </ScrollArea>
         </div>
+
     )
 }
 
