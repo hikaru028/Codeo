@@ -36,6 +36,7 @@ function useGetCalls() {
             }
         }
 
+        loadCalls();
     }, [client, user?.id]);
 
     const now = new Date();
