@@ -10,6 +10,7 @@ import { useQuery } from "convex/react";
 import { useState } from "react";
 import { api } from "../../../../convex/_generated/api";
 import { useRouter } from "next/navigation";
+import LoaderUI from "@/components/LoaderUI";
 
 export default function Home() {
   const router = useRouter();
@@ -18,7 +19,7 @@ export default function Home() {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [modalType, setModalType] = useState<"start" | "join">();
 
-  if (isLoading) return <p>Loading...</p>
+  if (isLoading) return <LoaderUI />
 
   const handleQuickAction = (title: string) => {
     switch (title) {

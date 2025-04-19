@@ -19,12 +19,9 @@ const RecordingsPage = (props: Props) => {
 
             try {
                 const callData = await Promise.all(calls.map((call) => call.queryRecordings()));
-                console.log("Call data: ", callData);
                 const allRecordings = callData.flatMap((call) => call.recordings);
-                console.log("All recordings: ", allRecordings);
 
                 setRecordings(allRecordings);
-                console.log("Recordings: ", recordings);
             } catch (error) {
                 console.log("Error fetching recordings: ", error);
             }
