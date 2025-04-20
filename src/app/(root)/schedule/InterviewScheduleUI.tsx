@@ -11,6 +11,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import UserInfo from '@/components/UserInfo';
 import { XIcon } from 'lucide-react';
+import { Calendar } from '@/components/ui/calendar';
 
 type Props = {}
 
@@ -174,7 +175,6 @@ const InterviewScheduleUI = (props: Props) => {
                                     </SelectContent>
                                 </Select>
                             </div>
-
                             {/* Interviewer */}
                             <div className='space-y-2'>
                                 <label className='text-sm font-medium'>Interviewers</label>
@@ -209,10 +209,15 @@ const InterviewScheduleUI = (props: Props) => {
                                     </Select>
                                 }
                             </div>
-                            {/* Date */}
+                            {/* Date & time */}
                             <div className='space-y-2'>
                                 <label htmlFor='title' className='text-sm font-medium'>Date</label>
-                                <Input
+                                <Calendar
+                                    mode='single'
+                                    selected={formData.date}
+                                    onSelect={(date) => date && setFormData({ ...formData, date })}
+                                    disabled={(date) => date < new Date()}
+                                    className='rounded-md border'
                                 />
                             </div>
                         </div>
