@@ -12,6 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import UserInfo from '@/components/UserInfo';
 import { XIcon } from 'lucide-react';
 import { Calendar } from '@/components/ui/calendar';
+import { TIME_SLOTS } from '@/constants';
 
 type Props = {}
 
@@ -219,6 +220,25 @@ const InterviewScheduleUI = (props: Props) => {
                                     disabled={(date) => date < new Date()}
                                     className='rounded-md border'
                                 />
+                            </div>
+                            <div className='apace-y-2'>
+                                <label htmlFor='title' className='text-sm font-medium'>Time</label>
+                                <Select
+                                    value={formData.time}
+                                    onValueChange={(time) => setFormData({ ...formData, time })}
+                                >
+                                    <SelectTrigger>
+                                        <SelectValue placeholder='Select time' />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        {TIME_SLOTS.map((time) => (
+                                            <SelectItem key={time} value={time}>
+                                                {time}
+                                            </SelectItem>
+                                        ))}
+                                    </SelectContent>
+
+                                </Select>
                             </div>
                         </div>
                     </DialogContent>
