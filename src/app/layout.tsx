@@ -31,10 +31,10 @@ export default function RootLayout({
 }>) {
   return (
     <ConvexClerkProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning={true}>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
           suppressHydrationWarning={true}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <ThemeProvider
             attribute="class"

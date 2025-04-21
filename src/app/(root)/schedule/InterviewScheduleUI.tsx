@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import UserInfo from '@/components/UserInfo';
-import { XIcon } from 'lucide-react';
+import { LoaderIcon, XIcon } from 'lucide-react';
 import { Calendar } from '@/components/ui/calendar';
 import { TIME_SLOTS } from '@/constants';
 
@@ -211,34 +211,54 @@ const InterviewScheduleUI = (props: Props) => {
                                 }
                             </div>
                             {/* Date & time */}
-                            <div className='space-y-2'>
-                                <label htmlFor='title' className='text-sm font-medium'>Date</label>
-                                <Calendar
-                                    mode='single'
-                                    selected={formData.date}
-                                    onSelect={(date) => date && setFormData({ ...formData, date })}
-                                    disabled={(date) => date < new Date()}
-                                    className='rounded-md border'
-                                />
+                            <div className='flex justify-start'>
+                                <div className='space-y-2'>
+                                    <label htmlFor='title' className='text-sm font-medium'>Date</label>
+                                    <Calendar
+                                        mode='single'
+                                        selected={formData.date}
+                                        onSelect={(date) => date && setFormData({ ...formData, date })}
+                                        disabled={(date) => date < new Date()}
+                                        className='rounded-md border'
+                                    />
+                                </div>
+                                <div className='apace-y-2'>
+                                    <label htmlFor='title' className='text-sm font-medium'>Time</label>
+                                    <Select
+                                        value={formData.time}
+                                        onValueChange={(time) => setFormData({ ...formData, time })}
+                                    >
+                                        <SelectTrigger>
+                                            <SelectValue placeholder='Select time' />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            {TIME_SLOTS.map((time) => (
+                                                <SelectItem key={time} value={time}>
+                                                    {time}
+                                                </SelectItem>
+                                            ))}
+                                        </SelectContent>
+                                    </Select>
+                                </div>
                             </div>
-                            <div className='apace-y-2'>
-                                <label htmlFor='title' className='text-sm font-medium'>Time</label>
-                                <Select
-                                    value={formData.time}
-                                    onValueChange={(time) => setFormData({ ...formData, time })}
+                            {/* Action buttons */}
+                            <div className='flex justify-end gap-3 pt-4'>
+                                <Button
+                                    variant='outline'
+                                    onClick={() => setOpen(false)}
                                 >
-                                    <SelectTrigger>
-                                        <SelectValue placeholder='Select time' />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        {TIME_SLOTS.map((time) => (
-                                            <SelectItem key={time} value={time}>
-                                                {time}
-                                            </SelectItem>
-                                        ))}
-                                    </SelectContent>
-
-                                </Select>
+                                    Cancel
+                                </Button>
+                                <Button>
+                                    {isCreating ? (
+                                        <>
+                                            <LoaderIcon />
+                                            Scheduling
+                                        </>
+                                    ) : (
+                                        "Schedule Interview"
+                                    )}
+                                </Button>
                             </div>
                         </div>
                     </DialogContent>
