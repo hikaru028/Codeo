@@ -249,11 +249,11 @@ const InterviewScheduleUI = (props: Props) => {
                                 >
                                     Cancel
                                 </Button>
-                                <Button>
+                                <Button onClick={scheduleMeeting} disabled={isCreating}>
                                     {isCreating ? (
                                         <>
-                                            <LoaderIcon />
-                                            Scheduling
+                                            <LoaderIcon className='mr-2 size-4 animate-spin' />
+                                            Scheduling...
                                         </>
                                     ) : (
                                         "Schedule Interview"
