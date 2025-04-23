@@ -10,9 +10,11 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import UserInfo from '@/components/UserInfo';
-import { LoaderIcon, XIcon } from 'lucide-react';
+import { Loader2Icon, LoaderIcon, XIcon } from 'lucide-react';
 import { Calendar } from '@/components/ui/calendar';
 import { TIME_SLOTS } from '@/constants';
+import LoaderUI from '@/components/LoaderUI';
+import MeetingCard from '@/components/MeetingCard';
 
 type Props = {}
 
@@ -264,6 +266,25 @@ const InterviewScheduleUI = (props: Props) => {
                     </DialogContent>
                 </Dialog>
             </div>
+
+            {/* Loading state and meeting card */}
+            {!interviews ? (
+                <div className='flex justify-center py-12'>
+                    <Loader2Icon className='size-8 animate-spin text-muted-foreground' />
+                </div>
+            ) : interviews.length > 0 ? (
+                <div className='space-y-4'>
+                    <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
+                        {interviews.map((interview) => (
+                            <MeetingCard key={interview._id} interview={interview} />
+                        ))}
+                    </div>
+                </div>
+            ) : (
+                <div className='text-center py-12 text-muted-foreground'>
+                    No interview scheduled
+                </div>
+            )}
         </div >
     )
 }
