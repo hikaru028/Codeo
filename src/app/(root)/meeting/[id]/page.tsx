@@ -14,7 +14,7 @@ type Props = {}
 const MeetingPage = (props: Props) => {
     const { id } = useParams();
     const { isLoaded } = useUser();
-    const { call, isCallLoading } = useGetCallById(id);
+    const { call, isCallLoading } = useGetCallById(id || '');
     const [isSetupComplete, setIsSetupComplete] = useState<boolean>(false);
 
     if (!isLoaded || isCallLoading) return <LoaderUI />
