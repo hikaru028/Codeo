@@ -4,7 +4,7 @@ import { useMutation, useQuery } from 'convex/react'
 import { api } from '../../convex/_generated/api'
 import toast from 'react-hot-toast'
 import { MessageSquareIcon, StarIcon } from 'lucide-react'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog'
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog'
 import { Button } from './ui/button'
 import { Badge } from './ui/badge'
 import { ScrollArea } from './ui/scroll-area'
@@ -15,6 +15,7 @@ import { format } from 'date-fns'
 import { Select, SelectContent, SelectItem, SelectTrigger } from './ui/select'
 import { SelectValue } from '@radix-ui/react-select'
 import { Label } from './ui/label'
+import { Textarea } from './ui/textarea'
 
 type CommentDialogProps = {
     interviewId: Id<"interviews">
@@ -119,7 +120,7 @@ const CommentDialog: FC<CommentDialogProps> = ({ interviewId }) => {
                             </ScrollArea>
                         </div>
                     )}
-
+                    {/* Rating */}
                     <div className='space-y-4'>
                         <div className='space-y-2'>
                             <Label>Rating</Label>
@@ -137,7 +138,26 @@ const CommentDialog: FC<CommentDialogProps> = ({ interviewId }) => {
                             </Select>
                         </div>
                     </div>
+                    {/* Comment */}
+                    <div className='space-y-2'>
+                        <Label>Your comment</Label>
+                        <Textarea
+                            value={comment}
+                            onChange={(e) => setComment(e.target.value)}
+                            placeholder='Write your comment here...'
+                            className='h-32'
+                        />
+                    </div>
                 </div>
+
+                <DialogFooter>
+                    <Button variant='outline' onClick={() => setIsOpen(false)}>
+                        Cancel
+                    </Button>
+                    <Button onClick={handleSubmit}>
+                        Submit
+                    </Button>
+                </DialogFooter>
             </DialogContent>
         </Dialog>
     )
