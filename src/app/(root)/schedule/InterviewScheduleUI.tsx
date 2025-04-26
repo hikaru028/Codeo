@@ -213,7 +213,7 @@ const InterviewScheduleUI = (props: Props) => {
                                 }
                             </div>
                             {/* Date & time */}
-                            <div className='flex justify-start'>
+                            <div className='flex justify-start gap-2'>
                                 <div className='space-y-2'>
                                     <label htmlFor='title' className='text-sm font-medium'>Date</label>
                                     <Calendar
